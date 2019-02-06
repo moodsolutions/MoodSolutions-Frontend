@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navbar from './Components/NavBar';
+import MoodSolutions from './Components/MoodSolutions';
 import Providers from './Components/Providers';
 const url = 'http://localhost:3001/provider/';
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     latitude: '',
     longitude: '',
-    navs: ["login" , "singout" , "offers"],
+    MoodSolutions: ["Login" , "Singout" , "Offers"],
     activeNav: ["providers"],
     user: null ,
     catgories: [],
@@ -61,7 +61,7 @@ class App extends Component {
     
     return (
 <div>
-      < MoodSolutions navs={this.state.navs} active={this.state.activeNav} onClickNav={this.onClickNav} logout={this.logout} />
+      < MoodSolutions navs={this.state.MoodSolutions} active={this.state.activeNav} onClickNav={this.onClickNav} logout={this.logout} />
       <div className="container">
 
       {this.state.activeNav === "offers" ? <Providers catgories={this.state.catgories}/> : ""}

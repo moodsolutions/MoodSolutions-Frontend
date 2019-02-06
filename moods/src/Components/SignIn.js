@@ -1,15 +1,20 @@
-import React, { Component } from 'react'
-import './App.css'
+
+import React from 'react';
+import {Button} from '@material-ui/core';
 
 
-class App extends Component{
-    constructor(){
-        super();
+const SignIn = props => {
+  return (
+    <div>
+      <h1>Login</h1>
+      <form onSubmit={props.handleSubmit}>
+        {props.renderInput("email", "Email")}
+        {props.renderInput("password", "Password", "password")}
+        <Button className="btn btn-primary"> Login </Button>
+      </form>
+    </div>
+  );
+};
 
-        this.state={
-            setView= true
-            
-        }
-    }
-    
-}
+
+export default SignIn

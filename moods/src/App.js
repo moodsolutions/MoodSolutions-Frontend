@@ -9,17 +9,14 @@ class App extends Component {
     longitude: '',
     navs: ["login" , "singout" , "providers" , "offers"],
     activeNav: ["providers"],
-    user: null ,
-    
+    user: null 
   }
 
   componentDidMount() {
     this.getMyLocation()
   }
   
-setView(view){
-  this.setState=()
-}
+
   getMyLocation() {
     const location = window.navigator && window.navigator.geolocation
     
@@ -50,7 +47,7 @@ setView(view){
       <div style={{ display:"flex"}}>
 
       {this.state.activeNav === "providers" ? <h1>All the providers</h1> : ""}
-      {this.state.activeNav === "login" ? <SignIn : ""}
+      {this.state.activeNav === "login" ? <h1>lmogin for</h1> : ""}
       {this.state.activeNav === "signup" ? <h1>Signup form</h1> : ""}
         {/* <Map latitude={latitude} longitude={longitude}/> */}
         {/* <MapComp latitude={"46.619659"} longitude={"24.741917"}/> */}

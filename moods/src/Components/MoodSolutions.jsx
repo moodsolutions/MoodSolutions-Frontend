@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-class Navbar extends Component {
+class MoodSolutions extends Component {
   constructor() {
     super();
     this.state = {};
   }
   renderNavs() {
-    return this.props.navs.map(nav => {
+    return this.props.navs.map((nav , index)=> {
       let isActive = nav.toLowerCase() === this.props.active;
       let style = isActive ? "nav-item active" : "nav-item";
 
       return (
-        <li className={style}>
+        <li className={style} key={index}>
           <a
             className="nav-link"
             onClick={() => this.props.onClickNav(nav.toLowerCase())}
@@ -24,10 +24,8 @@ class Navbar extends Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-expand-lg fixed-top sticky">
-        <a class="navbar-brand navbar-logo pt-0 logo" href="#">
-          Mood Solutions
-        </a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">MoodSolutions</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -47,4 +45,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default MoodSolutions;

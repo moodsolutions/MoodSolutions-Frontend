@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navbar from './Components/NavBar';
-
+import MoodSolutions from './Components/MoodSolutions';
+import Providers from './Components/Providers';
+const url = 'http://localhost:3001/provider/';
 class App extends Component {
   
   state = {
     latitude: '',
     longitude: '',
-    navs: ["login" , "singout" , "providers" , "offers"],
+    MoodSolutions: ["Login" , "Singout" , "Offers"],
     activeNav: ["providers"],
-    user: null 
+    user: null ,
+    catgories: [],
+    providers:[]
+  }
+
+  fetchProviders(){
+    fetch( url )
+      .then(response => response.json())
+      .then( data => {
+       let catgories = [ ...new Set(data.map( cat => cat.type ))]
+       catgories.push("all")
+        this.setState({
+          providers: data,
+          catgories
+        })
+      })
+      .catch( e => console.log(e))
   }
 
   componentDidMount() {
-    this.getMyLocation()
+    this.getMyLocation();
+    this.fetchProviders();
   }
   
 
@@ -43,11 +61,11 @@ class App extends Component {
     
     return (
 <div>
-      <Navbar navs={this.state.navs} active={this.state.activeNav} onClickNav={this.onClickNav} logout={this.logout} />
-      <div style={{ display:"flex"}}>
+      < MoodSolutions navs={this.state.MoodSolutions} active={this.state.activeNav} onClickNav={this.onClickNav} logout={this.logout} />
+      <div className="container">
 
-      {this.state.activeNav === "providers" ? <h1>All the providers</h1> : ""}
-      {this.state.activeNav === "login" ? <h1>lmogin for</h1> : ""}
+      {this.state.activeNav === "offers" ? <Providers catgories={this.state.catgories}/> : ""}
+      {this.state.activeNav === "login" ? <h1>login form</h1> : ""}
       {this.state.activeNav === "signup" ? <h1>Signup form</h1> : ""}
         {/* <Map latitude={latitude} longitude={longitude}/> */}
         {/* <MapComp latitude={"46.619659"} longitude={"24.741917"}/> */}

@@ -47,7 +47,7 @@ class App extends Component {
       <div style={{ display:"flex"}}>
 
       {this.state.activeNav === "providers" ? <h1>All the providers</h1> : ""}
-      {this.state.activeNav === "login" ? <h1>login form</h1> : ""}
+      {this.state.activeNav === "login" ? <h1>lmogin for</h1> : ""}
       {this.state.activeNav === "signup" ? <h1>Signup form</h1> : ""}
         {/* <Map latitude={latitude} longitude={longitude}/> */}
         {/* <MapComp latitude={"46.619659"} longitude={"24.741917"}/> */}

@@ -28,7 +28,7 @@ class Providers extends Component {
           this.setState({ offers: data})
       
       })
-      .catch( e => console.log(e))
+      .catch( error => console.log(error))
   }
   componentDidMount(){
       this.fetchOffers()

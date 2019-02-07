@@ -5,7 +5,9 @@ class ShowOffer extends Component {
   state = {
   
   }
-
+componentWillMount(){
+  this.fetchOffers()
+}
   fetchOffers(cat){
 
    
@@ -13,6 +15,8 @@ class ShowOffer extends Component {
       .then(response => response.json())
       .then( data => {
         console.log(data)
+  
+
       })
       .catch( e => console.log(e))
   }
@@ -22,7 +26,8 @@ class ShowOffer extends Component {
     
     return (
         <div className="container">
-            
+
+        {/* {this.props.renderProvidor} */}
         </div>
     )
   }
